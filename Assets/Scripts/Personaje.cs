@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Personaje : MonoBehaviour
 {
@@ -7,26 +8,23 @@ public class Personaje : MonoBehaviour
     public float jumpforce = 5f;
     public float dropForce = 10f;
 
-    // --- NUEVAS VARIABLES PARA EL DOBLE SALTO ---
-    public int maxJumps = 2;       // Cantidad total de saltos permitidos (2 para doble salto)
-    private int jumpsRemaining;    // Saltos que le quedan al jugador
+    public int maxJumps = 2;
+    private int jumpsRemaining;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpsRemaining = maxJumps; // Inicializamos con los saltos al máximo
+        jumpsRemaining = maxJumps;
     }
 
     void Update()
     {
-        // Si se presiona Espacio Y le quedan saltos disponibles
         if (Input.GetKeyDown(KeyCode.Space) && jumpsRemaining > 0)
         {
-            // Aplicamos el salto en el eje Y manteniendo la velocidad X original
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpforce);
 
-            jumpsRemaining--;    // Restamos 1 salto disponible
-            isGrounded = false;  // Ya no está tocando el suelo
+            jumpsRemaining--;
+            isGrounded = false;
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -37,9 +35,15 @@ public class Personaje : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Al tocar el suelo (o cualquier objeto con colisión), reiniciamos los saltos
         isGrounded = true;
-        jumpsRemaining = maxJumps; // Se resetea el contador a 2
+        jumpsRemaining = maxJumps;
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
+
+
 }
 

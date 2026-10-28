@@ -308,8 +308,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!61 &407667686
-BoxCollider2D:
+--- !u!60 &407667689
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -352,8 +352,25 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.46, y: 0.54}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.089999996, y: -0.26}
+      - {x: 0.17999999, y: -0.099999994}
+      - {x: 0.22999999, y: 0.03}
+      - {x: 0.22999999, y: 0.24}
+      - {x: 0.16, y: 0.26999998}
+      - {x: 0.03, y: 0.26999998}
+      - {x: -0.099999994, y: 0.19999999}
+      - {x: -0.14, y: 0.14999999}
+      - {x: -0.11, y: -0.049999997}
+      - {x: -0.22999999, y: -0.14999999}
+      - {x: -0.22999999, y: -0.24}
+      - {x: -0.17999999, y: -0.26}
+      - {x: -0.11, y: -0.26}
+      - {x: -0.099999994, y: -0.25}
+      - {x: -0.04, y: -0.21}
+      - {x: 0.04, y: -0.26}
+  m_UseDelaunayMesh: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje
       objectReference: {fileID: 0}
+    - target: {fileID: 5036515150281614927, guid: 118c573eaa8887b40b021dd42d247c0d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8482942893212948081, guid: 118c573eaa8887b40b021dd42d247c0d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4355688
@@ -894,7 +915,7 @@ PrefabInstance:
       addedObject: {fileID: 407667685}
     - targetCorrespondingSourceObject: {fileID: 5036515150281614927, guid: 118c573eaa8887b40b021dd42d247c0d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 407667686}
+      addedObject: {fileID: 407667689}
   m_SourcePrefab: {fileID: 100100000, guid: 118c573eaa8887b40b021dd42d247c0d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
