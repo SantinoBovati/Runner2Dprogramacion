@@ -5,6 +5,6 @@ public class MenuControlador : MonoBehaviour
 {
     public void VolverAlJuego()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

@@ -40,6 +40,11 @@ public class Personaje : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            float puntuacionFinal = Time.timeSinceLevelLoad * 10f;
+
+            PlayerPrefs.SetFloat("PuntuacionFinal", puntuacionFinal);
+            PlayerPrefs.Save();
+
             SceneManager.LoadScene("GameOver");
         }
     }
